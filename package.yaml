@@ -1,0 +1,63 @@
+name:                birthday-api
+version:             0.1.0.0
+github:              "GabrielDertoni/birthday-api"
+license:             BSD3
+author:              "Author name here"
+maintainer:          "example@example.com"
+copyright:           "2020 Author name here"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/GabrielDertoni/birthday-api#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- bytestring
+- utf8-string
+- async
+- aeson
+- uuid
+- text
+- hspec
+- QuickCheck
+- zero-bullshit
+
+default-extensions:
+- OverloadedStrings
+- DeriveGeneric
+- DeriveAnyClass
+- StandaloneDeriving
+
+library:
+  source-dirs: src
+
+executables:
+  birthday-api-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - birthday-api
+
+tests:
+  birthday-api-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - birthday-api
